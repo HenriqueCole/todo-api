@@ -25,5 +25,5 @@ jobs:
     # ./Setup do Job
     - run: |
         ls -la
-        npm i vitest
+        npm i
         npm test
