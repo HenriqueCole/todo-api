@@ -1,7 +1,12 @@
-const { get, getById, post, remove } = require('../../crud/firebase');
+const { get, getById, post, remove, getTasksRealTime } = require('../../crud/firebase');
 
 async function getTasks() {
   const tasks = await get('tasks');
+  return tasks;
+}
+
+async function getRealTime(){
+  const tasks = await getTasksRealTime();
   return tasks;
 }
 
@@ -75,5 +80,6 @@ module.exports = {
   blockTask,
   unblockTask,
   deleteAllTasks,
-  getTaskByDescription
+  getTaskByDescription,
+  getRealTime,
 };

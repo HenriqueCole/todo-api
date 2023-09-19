@@ -29,6 +29,22 @@ const auth = getAuth(app);
 
 const db = getFirestore();
 
+const tasksReference = db.collection("tasks");
+
+function getTasksRealTime(){
+  return new Promise((resolve, reject) => {
+    tasksReference.onSnapshot((snapshot) => {
+      const tasks = [];
+      snapshot.forEach((doc) => {
+        tasks.push(doc.data());
+      });
+      resolve(tasks);
+    }, (error) => {
+      reject(error);
+    });
+  });
+}
+
 async function post(tableName, id, data) {
   if (id) {
     const referenceEntity = await setDoc(doc(db, tableName, id), data);
@@ -90,5 +106,6 @@ module.exports = {
   post,
   get,
   getById,
-  remove
+  remove,
+  getTasksRealTime,
 };
