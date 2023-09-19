@@ -6,7 +6,7 @@ GET http://localhost:3001/api/users
 
 ###
 
-PUT http://localhost:3001/api/tasks/PoFl90GkuNOXLewEuAT1
+PUT http://localhost:3001/api/tasks/3y87tjHGt0XOMLyp2E8I
 
 {
   "createdBy": "Doe Doe",
@@ -14,17 +14,4 @@ PUT http://localhost:3001/api/tasks/PoFl90GkuNOXLewEuAT1
   "priority": "Alta",
   "responsible": "Doe Doe",
   "status": "Done",
-}
-
-###
-
-POST http://localhost:3001/api/tasks
-
-{
-  "createdBy": "Doe Doe",
-  "description": "EDITADO",
-  "priority": "Alta",
-  "responsible": "Doe Doe",
-  "status": "Done",
-  "isBlocked": true
 }

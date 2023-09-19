@@ -14,13 +14,12 @@ router.post("/tasks", async (req, res) => {
 });
 
 router.get("/tasks", async (req, res) => {
-  tasksHandler.getRealTimeTasks()
+  tasksHandler.getTasks()
   .then((result) => {
     res.status(200).json(result);
   })
   .catch((error) => {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json(error);
   });
 });
 
