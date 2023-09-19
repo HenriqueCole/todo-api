@@ -25,3 +25,4 @@ jobs:
     # ./Setup do Job
     - run: |
         ls -la
+        npm test
