@@ -1,16 +1,18 @@
-import express from 'express';
+const cors = require("cors");
+const express = require("express");
+
+const tasksRoute =  require("./api/tasks/tasks.controller");
+const usersRoute =  require("./api/users/users.controller");
+
+const port = 3001;
 
 const app = express();
-const PORT = 3333;
+app.use(cors());
+app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
+app.use("/api", tasksRoute);
+app.use("/api", usersRoute);
 
-app.get('/hello', (req, res) => {
-  res.send('WORLD');
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
